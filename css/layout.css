@@ -1,0 +1,45 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header{
+    /* Dimensiones*/
+    width: 100%;
+    padding: 15px;    
+    /* Posicionamiento */
+    position: sticky;
+    top:0px;
+    /* Estilo*/
+    background-color: green;
+}
+
+main{
+    /* Dimensiones*/
+    width:  100%;
+    height: 160vh;
+    /* Estilo*/
+    background-color: red;
+}
+
+#add{
+    /* Dimensiones */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* Posicionamiento*/
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    /* Posicionamiento del contenido*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Estetica*/
+    background-color: aqua;
+}
+
+#add i{
+    font-size: 50px;
+}
