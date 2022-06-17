@@ -1,3 +1,20 @@
+:root{
+    --primary: #76ff03;
+    --plight: #b0ff57;
+    --pdark: #32cb00;
+    --secondary:#1c41ff;
+    --slight:#746dff;
+    --sdark:#0017ca;
+
+    --textp: #000000;
+    --texts: #ffffff;
+
+    --backcolor: white;
+    --backshadow: rgba(128, 128, 128, 0.3);
+    
+    --pfont: Geneva, Verdana, sans-serif
+}
+
 *{
     margin:0px;
     padding: 0px;
@@ -12,15 +29,16 @@ header{
     position: sticky;
     top:0px;
     /* Estilo*/
-    background-color: green;
+    background-color: var(--primary);
+    color: var(--textp);
+    box-shadow: 0 5px 5px var(--backshadow);
+    font-family: var(--pfont);
 }
 
 main{
     /* Dimensiones*/
     width:  100%;
-    height: 160vh;
-    /* Estilo*/
-    background-color: red;
+    height: 160vh;      
 }
 
 footer{
@@ -30,7 +48,7 @@ footer{
     position: fixed;
     bottom:0px;
 
-    background-color: pink;
+    background-color: var(--plight);
 }
 
 #add{
@@ -47,10 +65,13 @@ footer{
     justify-content: center;
     align-items: center;
     /* Estetica*/
-    background-color: aqua;  
-    border: 7px solid red; 
+    background-color: var(--sdark); 
+    color: var(--texts);
+    border: 7px solid var(--backcolor);    
 }
 
 #add i{
+    
     font-size: 50px;
+    
 }
