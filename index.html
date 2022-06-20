@@ -19,7 +19,19 @@
         <div id="infoprod">
             <header><h4>Nuevo Producto</h4></header>
             <input type="text" placeholder="Cosa a comprar...">
-            <input type="number">
+            <label for="tienda">¿En qué tienda?</label>
+            <select id="selectTienda" name="tienda">
+                <option value="Mas y Mas">Mas y Mas</option>
+                <option value="Mercadona">Mercadona</option>
+            </select>
+            <div class="visorNum">
+                <i class="material-icons">remove_circle_outline</i>
+                <input type="number" min=0 placeholder="Cantidad...">
+                <i class="material-icons">add_circle_outline</i>
+            </div> 
+            <textarea name="notas" id="areaNotas" placeholder="¿Algo que tener en cuenta?" cols="30" rows="10"></textarea>
+            <div id="infoprodCancel" class="button">Cancelar</div>
+            <div id="infoprodGuardar" class="button">Guardar</div>        
         </div>
     </div>
     
