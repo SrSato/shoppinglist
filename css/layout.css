@@ -49,12 +49,44 @@ main{
     background-color: var(--backcolor);
 }
 
-main ul li{
-    margin: 25px;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
+main table {
+    width: 100vw;
+    margin: 0px auto;
+    border-collapse: collapse;
+    
 }
+
+main table td{
+    height:30px ;
+}
+
+main table tr:nth-child(even){
+    background-color: var(--plight);
+    
+}
+
+td input[type="checkbox"]{
+    margin-left: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+.td_cant::before{
+    content: "x";
+}
+
+.td_cant::after{
+    content: "uds.";
+}
+
+.td_icons{
+    display: flex;
+    align-items: center;    
+    color: var(--secondary);
+    font-size: 25px;
+}
+
+
 
 footer{
     width: 100%;
