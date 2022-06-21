@@ -58,14 +58,14 @@
                 <i class="material-icons">add_circle_outline</i>
             </div> 
             <textarea name="notas" id="areaNotas" placeholder="¿Algo que tener en cuenta?" cols="30" rows="10"></textarea>
-            <div id="infoprodCancel" class="button cancelar">Cancelar</div>
+            <div id="infoprodCancel" class="button cancelar" onclick="escondeModal()">Cancelar</div>
             <div id="infoprodGuardar" class="button">Guardar</div> 
         </div>
     </div>
     
     <footer>
-      <div id="add"><i class="material-icons">add</i></div>
+      <div id="add" onclick="muestraModal()"><i class="material-icons">add</i></div>
     </footer>
-   
+   <script src="js/logica.js"></script>
 </body>
 </html>
