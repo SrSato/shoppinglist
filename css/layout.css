@@ -49,6 +49,13 @@ main{
     background-color: var(--backcolor);
 }
 
+main ul li{
+    margin: 25px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
 footer{
     width: 100%;
     min-height: 55px;
@@ -93,7 +100,7 @@ footer{
     left:0px;
     z-index: 2;
 
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 
@@ -101,7 +108,7 @@ footer{
 }
 
 #infoprod{
-    width: 80vw;    
+    max-width: 500px;    
     border-radius: 10px;
 
     display: flex;
@@ -124,6 +131,7 @@ footer{
 }
 
 .visorNum{
+    width: 100%;
     margin: auto;
     padding: 15px;
 
@@ -150,8 +158,9 @@ footer{
 }
 
 #infoprod textarea{
-    margin: auto;
-    margin-bottom: 15px;
+    width: 100%;
+    margin: 15px;
+    
 
     border-color: var(--sdark);
 }
@@ -171,4 +180,9 @@ footer{
     color: var(--texts);
     font-size:0.9rem;    
 }
+.cancelar{
+    background-color: var(--slight);
+}
+
+
 
