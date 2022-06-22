@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping List Nules 2022</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
+    <link id="cssbueno" href="css/layout.css" rel="stylesheet">
 </head>
 <body>
     <header><h3>Shopping List</h3></header>
@@ -17,7 +17,7 @@
                 <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
                 <td> <label for="chk_platano">Plátano</label></td>
                 <td class="td_cant"> 12 </td>
-                <td class="td_icons"> <i class="material-icons">search</i><i class="material-icons">delete</i></td>
+                <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons">delete</i></td>
             </tr>
             <tr>
                 <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
@@ -44,7 +44,7 @@
     </main>
     
     <div class="modal">
-        <div id="infoprod">
+        <div id="introprod" class="modalhija">
             <header><h4>Nuevo Producto</h4></header>
             <input type="text" placeholder="Cosa a comprar...">
             <label for="tienda">¿En qué tienda?</label>
@@ -58,13 +58,20 @@
                 <i class="material-icons">add_circle_outline</i>
             </div> 
             <textarea name="notas" id="areaNotas" placeholder="¿Algo que tener en cuenta?" cols="30" rows="10"></textarea>
-            <div id="infoprodCancel" class="button cancelar" onclick="escondeModal()">Cancelar</div>
-            <div id="infoprodGuardar" class="button">Guardar</div> 
+            <div id="introprodCancel" class="button cancelar" onclick="escondeModal()">Cancelar</div>
+            <div id="introprodGuardar" class="button">Guardar</div> 
+        </div>
+        <div id="infoprod" class="modalhija">
+            <header><h4>Plátano</h4></header>
+            <p> <span>Compra:</span> <span>12</span> </p>
+            <p> <span>En: </span> Fruteria Pepi </p>
+            <p> <span>Notas: </span> Blablabla</p>
+            <div id="infoprodOk" class="button cancelar" onclick="escondeModal()">Visto</div>
         </div>
     </div>
     
     <footer>
-      <div id="add" onclick="muestraModal()"><i class="material-icons">add</i></div>
+      <div id="add" onclick="muestraModal('introprod')"><i class="material-icons">add</i></div>
     </footer>
    <script src="js/logica.js"></script>
 </body>

@@ -139,19 +139,19 @@ footer{
     background-color: rgba(211, 211, 211, 0.5);
 }
 
-#infoprod{
+#introprod,#infoprod{
     max-width: 500px;    
     border-radius: 10px;
 
-    display: flex;
+    display: none;
     flex-wrap: wrap;
 
     background-color: var(--backcolor);
     overflow: hidden;
 }
 
-#infoprod input[type='text'],
-#infoprod input[type='number']{
+#introprod input[type='text'],
+#introprod input[type='number']{
     width: 100%;
     height: 3ch;
     margin-right: 15px;
@@ -176,7 +176,7 @@ footer{
     font-size: 45px ;
     color: var(--secondary)
 }
-#infoprod label{
+#introprod label{
     margin:15px;
 
     color: gray;
@@ -184,20 +184,19 @@ footer{
     border-bottom: 2px solid var(--sdark);
 }
 
-#infoprod select{
+#introprod select{
     margin-top: 15px;
     height: 3ch;
 }
 
-#infoprod textarea{
+#introprod textarea{
     width: 100%;
-    margin: 15px;
-    
+    margin: 15px;    
 
     border-color: var(--sdark);
 }
 
-#infoprod .button{ 
+.button{ 
     width: 10ch;
     height: 5ch;   
     border-radius: 5px;
