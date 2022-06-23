@@ -198,6 +198,10 @@ footer{
     border-color: var(--sdark);
 }
 
+#infoprod{
+    justify-content: center;
+}
+
 #infoprod p{
     width: 100%;
     margin-bottom: 15px;
