@@ -8,6 +8,7 @@
 
     --textp: #000000;
     --texts: #ffffff;
+    --textsupport: gray;
 
     --backcolor: white;
     --backshadow: rgba(128, 128, 128, 0.3);
@@ -176,10 +177,11 @@ footer{
     font-size: 45px ;
     color: var(--secondary)
 }
-#introprod label{
+#introprod label,
+.label{
     margin:15px;
 
-    color: gray;
+    color: var(--textsupport);
     font-size: 12px;
     border-bottom: 2px solid var(--sdark);
 }
@@ -196,6 +198,14 @@ footer{
     border-color: var(--sdark);
 }
 
+#infoprod p{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.info{
+    font-size: 14px;
+    
+}
 .button{ 
     width: 10ch;
     height: 5ch;   
