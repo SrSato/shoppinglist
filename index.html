@@ -7,6 +7,8 @@
     <title>Shopping List Nules 2022</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link id="cssbueno" href="css/layout.css" rel="stylesheet">
+    <script src="js/logica.js"></script>
+    <script src="js/tiendas.js"></script>
 </head>
 <body>
     <header><h3>Shopping List</h3></header>
@@ -47,10 +49,23 @@
             <header><h4>Nuevo Producto</h4></header>
             <input type="text" placeholder="Cosa a comprar...">
             <label for="tienda">¿En qué tienda?</label>
-            <select id="selectTienda" name="tienda">
-                <option value="Mas y Mas">Mas y Mas</option>
-                <option value="Mercadona">Mercadona</option>
+            <select id="selectTienda" name="tienda">               
             </select>
+            <script>
+
+                let select = document.getElementById("selectTienda");
+                let opciones= '';
+
+                opciones = `<option value="no seleccionado">  </option>`;
+                
+                for( tienda of col_tiendas.tiendas){
+                    opciones += ` <option value= ${tienda.nombre} > ${tienda.nombre} </option>`
+                }
+               
+                select.innerHTML = opciones;
+
+
+            </script>
             <div class="visorNum">
                 <i class="material-icons">remove_circle_outline</i>
                 <input type="number" min=0 placeholder="Cantidad...">
@@ -72,7 +87,6 @@
     <footer>
       <div id="add" onclick="muestraModal('introprod')"><i class="material-icons">add</i></div>
     </footer>
-   <script src="js/logica.js"></script>
-   <script src="js/ficheros.js"></script>
+  
 </body>
 </html>
