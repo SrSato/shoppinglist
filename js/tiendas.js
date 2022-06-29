@@ -2,19 +2,26 @@ let col_tiendas;
 
 col_tiendas = {
     "tiendas" : [
-        {
-            "nombre":"Melones de Leyenda",
-            "direccion": "C/Mercadona nº 34 CP. 344343"
-        },
-        {
-            "nombre":"Mercadona",
-            "direccion": "C/Fruterias nº 26 CP. 434533"
-        },
-        {
-            "nombre":"ALDI",
-            "direccion":"C/ Del Rio nº 24 CP. 12600"
-        }
+        {"nombre":"Melones de Leyenda"},
+        {"nombre":"Mercadona"},
+        {"nombre":"ALDI"}
     ]
+}
+
+
+function rellenaSelect( idSelect, coleccion){
+
+    let select = document.getElementById(idSelect);
+    let opciones= '';
+
+    opciones = `<option value="no seleccionado"></option>`;
+    
+    for( tienda of coleccion){
+        opciones += ` <option value= "${tienda.nombre}" > ${tienda.nombre} </option>`
+                              
+    }
+   
+    select.innerHTML = opciones;
 }
 
 

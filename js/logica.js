@@ -18,3 +18,14 @@ function escondeHijas(){
         hija.style.display="none";
     }
 }
+
+function sumaNum(num, idInputNumber, min){
+    let input = document.getElementById(idInputNumber);
+    input.value = Number(input.value) + num;
+    
+    if(min!=null){        
+        if (input.value < min){
+            input.value = min;
+        }       
+    }
+}

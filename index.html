@@ -9,6 +9,7 @@
     <link id="cssbueno" href="css/layout.css" rel="stylesheet">
     <script src="js/logica.js"></script>
     <script src="js/tiendas.js"></script>
+    <script src="js/productos.js"></script>
 </head>
 <body>
     <header><h3>Shopping List</h3></header>
@@ -47,33 +48,21 @@
     <div class="modal">
         <div id="introprod" class="modalhija">
             <header><h4>Nuevo Producto</h4></header>
-            <input type="text" placeholder="Cosa a comprar...">
+            <input id="inputNombre" type="text" placeholder="Cosa a comprar...">
             <label for="tienda">¿En qué tienda?</label>
             <select id="selectTienda" name="tienda">               
             </select>
             <script>
-
-                let select = document.getElementById("selectTienda");
-                let opciones= '';
-
-                opciones = `<option value="no seleccionado">  </option>`;
-                
-                for( tienda of col_tiendas.tiendas){
-                    opciones += ` <option value= ${tienda.nombre} > ${tienda.nombre} </option>`
-                }
-               
-                select.innerHTML = opciones;
-
-
+                rellenaSelect("selectTienda", col_tiendas.tiendas);
             </script>
             <div class="visorNum">
-                <i class="material-icons">remove_circle_outline</i>
-                <input type="number" min=0 placeholder="Cantidad...">
-                <i class="material-icons">add_circle_outline</i>
+                <i class="material-icons" onclick="sumaNum(-1,'inputCantidad', 0)">remove_circle_outline</i>
+                <input id="inputCantidad" type="number" min=0 placeholder="Cantidad...">
+                <i class="material-icons" onclick="sumaNum(1,'inputCantidad')">add_circle_outline</i>
             </div> 
             <textarea name="notas" id="areaNotas" placeholder="¿Algo que tener en cuenta?" cols="30" rows="10"></textarea>
             <div id="introprodCancel" class="button cancelar" onclick="escondeModal()">Cancelar</div>
-            <div id="introprodGuardar" class="button">Guardar</div> 
+            <div id="introprodGuardar" class="button" onclick="creaProducto()">Guardar</div> 
         </div>
         <div id="infoprod" class="modalhija">
             <header><h4>Plátano</h4></header>
