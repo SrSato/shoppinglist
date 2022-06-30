@@ -233,5 +233,7 @@ footer{
     background-color: var(--slight);
 }
 
-
+.invisible{
+    display:none;
+}
 
