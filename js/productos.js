@@ -72,7 +72,8 @@ function rellenaLista(){
         <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons">delete</i></td>
     </tr>
     */
-    document.getElementById("tablaProds").innerHTML="";
+    let contenedor= document.querySelector("main");
+    let tabla = '<table class="cebreado" id="tablaProds">';
 
     for (producto of col_productos.productos) {
         filaTabla = 
@@ -83,7 +84,19 @@ function rellenaLista(){
                 <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons">delete</i></td>
             </tr>`;
 
-        document.getElementById("tablaProds").innerHTML += filaTabla;        
+       tabla += filaTabla;        
+    }   
+    tabla +="</table>";
+    contenedor.innerHTML = tabla;
+}
+
+function recuperarArchivados(){
+
+    if( localStorage.getItem("col_productos") ){
+
+        col_productos = localStorage.getItem("col_productos"); //Ahora esto es un string
+        col_productos = JSON.parse(col_productos); //Ahora ya no, ahora es un JSON
+
     }    
-    
+
 }
