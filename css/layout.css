@@ -45,7 +45,7 @@ header{
 main{
     /* Dimensiones*/
     width:  100%;
-    height: 160vh;
+    height: 100vh;
     /* Estilo*/
     background-color: var(--backcolor);
 }
@@ -200,6 +200,10 @@ footer{
 
 #infoprod{
     justify-content: center;
+}
+
+#infoprod .row{
+    width: 100%;
 }
 
 #infoprod p{

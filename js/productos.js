@@ -65,14 +65,17 @@ function limpiaProducto(){
 
 function rellenaLista(){
     /*
-    <tr>
-        <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
-        <td> <label for="chk_platano">Plátano</label></td>
-        <td class="td_cant"> 12 </td>
-        <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons">delete</i></td>
-    </tr>
+    <table class="cebreado" id="tablaProds">
+        <tr>
+            <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
+            <td> <label for="chk_platano">Plátano</label></td>
+            <td class="td_cant"> 12 </td>
+            <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons" onclick='borraProducto("plátano")'>delete</i></td>
+        </tr>
+    </table>
     */
-    let contenedor= document.querySelector("main");
+
+    let contenedor= document.getElementById("main");
     let tabla = '<table class="cebreado" id="tablaProds">';
 
     for (producto of col_productos.productos) {
@@ -81,7 +84,7 @@ function rellenaLista(){
                 <td> <input type="checkbox" name="chk_${producto.nombre}" id="chk_${producto.nombre}"></td>
                 <td> <label for="chk_${producto.nombre}">${producto.nombre}</label></td>
                 <td class="td_cant"> ${producto.cantidad} </td>
-                <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons">delete</i></td>
+                <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons" onclick='borraProducto("${producto.nombre}")'>delete</i></td>
             </tr>`;
 
        tabla += filaTabla;        
@@ -90,13 +93,32 @@ function rellenaLista(){
     contenedor.innerHTML = tabla;
 }
 
-function recuperarArchivados(){
+function recuperaArchivados(){
 
     if( localStorage.getItem("col_productos") ){
 
         col_productos = localStorage.getItem("col_productos"); //Ahora esto es un string
         col_productos = JSON.parse(col_productos); //Ahora ya no, ahora es un JSON
 
+        rellenaLista();
+
     }    
 
 }
+
+function borraProducto(eliminable){
+    
+    for( producto of col_productos.productos){
+        if(producto.nombre=eliminable){
+            posicion = col_productos.productos.indexOf(producto);
+            col_productos.productos.splice(posicion,1);
+        }
+    }
+
+    localStorage.setItem( "col_productos", JSON.stringify(col_productos) );
+
+    rellenaLista();
+
+    //¿Y si el nombre está vacio??? :(
+}
+

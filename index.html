@@ -14,39 +14,8 @@
 <body>
     <header><h3>Shopping List</h3></header>
 
-    <main>
-       <table class="cebreado" id="tablaProds">
-            <tr>
-                <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
-                <td> <label for="chk_platano">Plátano</label></td>
-                <td class="td_cant"> 12 </td>
-                <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons">delete</i></td>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
-                <td> <label for="chk_platano">Plátano</label></td>
-                <td class="td_cant"> 12 </td>
-                <td class="td_icons"> <i class="material-icons">search</i><i class="material-icons">delete</i></td>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
-                <td> <label for="chk_platano">Plátano</label></td>
-                <td class="td_cant"> 12 </td>
-                <td class="td_icons"> <i class="material-icons">search</i><i class="material-icons">delete</i></td>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
-                <td> <label for="chk_platano">Plátano</label></td>
-                <td class="td_cant"> 12 </td>
-                <td class="td_icons"> <i class="material-icons">search</i><i class="material-icons">delete</i></td>
-            </tr>
-           
-       </table>      
+    <main id="main" >       
     </main>
-    <script>
-        recuperarArchivados();
-        rellenaLista();
-   </script>
     
     <div class="modal">
         <div id="introprod" class="modalhija">
@@ -55,9 +24,6 @@
             <label for="tienda">¿En qué tienda?</label>
             <select id="selectTienda" name="tienda">               
             </select>
-            <script>
-                rellenaSelect("selectTienda", col_tiendas.tiendas);
-            </script>
             <div class="visorNum">
                 <i class="material-icons" onclick="sumaNum(-1,'inputCantidad')">remove_circle_outline</i>
                 <input id="inputCantidad" type="number" min=0 placeholder="Cantidad...">
@@ -69,9 +35,9 @@
         </div>
         <div id="infoprod" class="modalhija">
             <header><h4>Plátano</h4></header>
-                <span class="label">Compra:</span> <span class="info">12</span>
-                <span class="label">En: </span> <span class="info">Fruteria Pepi </span>
-                <span class="label">Notas: </span> <span class="info">Blablabla</span>
+                <div class="row"><span class="label">Compra:</span> <span class="info">12</span></div>
+                <div class="row"><span class="label">En: </span> <span class="info">Fruteria Pepi </span></div>
+                <div class="row"><span class="label">Notas: </span> <span class="info">Blablabla</span></div>
             <div id="infoprodOk" class="button cancelar" onclick="escondeModal()">Visto</div>
         </div>
     </div>
@@ -80,5 +46,10 @@
       <div id="add" onclick="muestraModal('introprod')"><i class="material-icons">add</i></div>
     </footer>
   
+    <script>
+        //Para cargar los datos después de tener el esqueleto
+        recuperaArchivados();
+        rellenaSelect("selectTienda", col_tiendas.tiendas);
+    </script>
 </body>
 </html>
