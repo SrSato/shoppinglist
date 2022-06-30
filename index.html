@@ -7,12 +7,15 @@
     <title>Shopping List Nules 2022</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link id="cssbueno" href="css/layout.css" rel="stylesheet">
+    <script src="js/logica.js"></script>
+    <script src="js/tiendas.js"></script>
+    <script src="js/productos.js"></script>
 </head>
 <body>
     <header><h3>Shopping List</h3></header>
 
     <main>
-       <table>
+       <table class="cebreado" id="tablaProds">
             <tr>
                 <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
                 <td> <label for="chk_platano">Plátano</label></td>
@@ -38,27 +41,31 @@
                 <td class="td_icons"> <i class="material-icons">search</i><i class="material-icons">delete</i></td>
             </tr>
            
-       </table>
-
+       </table>      
     </main>
+    <script>
+        recuperarArchivados();
+        rellenaLista();
+   </script>
     
     <div class="modal">
         <div id="introprod" class="modalhija">
             <header><h4>Nuevo Producto</h4></header>
-            <input type="text" placeholder="Cosa a comprar...">
+            <input id="inputNombre" type="text" placeholder="Cosa a comprar...">
             <label for="tienda">¿En qué tienda?</label>
-            <select id="selectTienda" name="tienda">
-                <option value="Mas y Mas">Mas y Mas</option>
-                <option value="Mercadona">Mercadona</option>
+            <select id="selectTienda" name="tienda">               
             </select>
+            <script>
+                rellenaSelect("selectTienda", col_tiendas.tiendas);
+            </script>
             <div class="visorNum">
-                <i class="material-icons">remove_circle_outline</i>
-                <input type="number" min=0 placeholder="Cantidad...">
-                <i class="material-icons">add_circle_outline</i>
+                <i class="material-icons" onclick="sumaNum(-1,'inputCantidad')">remove_circle_outline</i>
+                <input id="inputCantidad" type="number" min=0 placeholder="Cantidad...">
+                <i class="material-icons" onclick="sumaNum(1,'inputCantidad')">add_circle_outline</i>
             </div> 
             <textarea name="notas" id="areaNotas" placeholder="¿Algo que tener en cuenta?" cols="30" rows="10"></textarea>
-            <div id="introprodCancel" class="button cancelar" onclick="escondeModal()">Cancelar</div>
-            <div id="introprodGuardar" class="button">Guardar</div> 
+            <div id="introprodCancel" class="button cancelar" onclick="limpiaProducto()">Cancelar</div>
+            <div id="introprodGuardar" class="button" onclick="creaProducto()">Guardar</div> 
         </div>
         <div id="infoprod" class="modalhija">
             <header><h4>Plátano</h4></header>
@@ -72,7 +79,6 @@
     <footer>
       <div id="add" onclick="muestraModal('introprod')"><i class="material-icons">add</i></div>
     </footer>
-   <script src="js/logica.js"></script>
-   <script src="js/ficheros.js"></script>
+  
 </body>
 </html>

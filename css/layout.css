@@ -61,7 +61,7 @@ main table td{
     height:30px ;
 }
 
-main table tr:nth-child(even){
+.cebreado tr:nth-child(even){
     background-color: var(--plight);
     
 }
