@@ -44,7 +44,7 @@ function creaProducto(){
             "nombre": nombre,
             "tienda": tienda,
             "cantidad": cantidad,
-            "notas": notas 
+            "notas": notas
         }
     );
 
@@ -86,12 +86,13 @@ function rellenaLista(){
     let tabla = '<table class="cebreado" id="tablaProds">';
 
     for (producto of col_productos.productos) {
+        indice = col_productos.productos.indexOf(producto);
         filaTabla = 
             `<tr>
                 <td> <input type="checkbox" name="chk_${producto.nombre}" id="chk_${producto.nombre}"></td>
                 <td> <label for="chk_${producto.nombre}">${producto.nombre}</label></td>
                 <td class="td_cant"> ${producto.cantidad} </td>
-                <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons" onclick='borraProducto("${producto.nombre}")'>delete</i></td>
+                <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons" onclick='borraProducto(${indice})'>delete</i></td>
             </tr>`;
 
        tabla += filaTabla;        
@@ -114,18 +115,15 @@ function recuperaArchivados(){
 }
 
 function borraProducto(eliminable){
-    
-    for( producto of col_productos.productos){
-        if(producto.nombre=eliminable){
-            posicion = col_productos.productos.indexOf(producto);
-            col_productos.productos.splice(posicion,1);
-        }
-    }
+       
+    // 1. Eliminar el producto del JSON
+    col_productos.productos.splice(eliminable,1);
 
+    // 2. Guardar el JSON actualizado en el localStorage
     localStorage.setItem( "col_productos", JSON.stringify(col_productos) );
 
+    // 3. Volver a pintar la lista
     rellenaLista();
-
-    //¿Y si el nombre está vacio??? :(
+   
 }
 
