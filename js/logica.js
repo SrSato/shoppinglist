@@ -23,3 +23,18 @@ function sumaNum(num, idInputNumber){
     let input = document.getElementById(idInputNumber);
     input.value = Number(input.value) + num;    
 }
+
+function sumaNumConTopes(num, idInputNumber, topeMin, topeMax){
+    topeMin = topeMin|0;
+    topeMax = topeMax|1000000;
+
+    let input = document.getElementById(idInputNumber);
+    input.value = Number(input.value) + num;
+    
+    if(input.value<topeMin){
+        input.value= topeMin;
+    }   
+    if(input.value>topeMax){
+        input.value= topeMax;
+    } 
+}

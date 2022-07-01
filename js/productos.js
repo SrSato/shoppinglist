@@ -26,6 +26,13 @@ function creaProducto(){
     let cantidad = document.getElementById("inputCantidad").value;
     let notas = document.getElementById("areaNotas").value;
 
+    //Validamos que el nombre no esté vacio
+    nombre = nombre.slice(0,1).toUpperCase() + nombre.slice(1);
+    if (nombre.trim()=="") {
+        limpiaProducto();
+        return false;
+    }
+
     //Validamos la cantidad pq no quiero compras negativas
     if (cantidad<=0) {
         cantidad=1;
@@ -55,7 +62,7 @@ function creaProducto(){
 function limpiaProducto(){
     //limpiamos los inputs
     document.getElementById("inputNombre").value="";
-    document.getElementById("selectTienda").value="";
+    document.getElementById("selectTienda").value="No seleccionado";
     document.getElementById("inputCantidad").value="";
     document.getElementById("areaNotas").value="";
 
