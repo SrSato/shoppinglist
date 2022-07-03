@@ -92,7 +92,7 @@ function rellenaLista(){
                 <td> <input type="checkbox" name="chk_${producto.nombre}" id="chk_${producto.nombre}"></td>
                 <td> <label for="chk_${producto.nombre}">${producto.nombre}</label></td>
                 <td class="td_cant"> ${producto.cantidad} </td>
-                <td class="td_icons"> <i class="material-icons" onclick="muestraModal('infoprod')">search</i><i class="material-icons" onclick='borraProducto(${indice})'>delete</i></td>
+                <td class="td_icons"> <i class="material-icons" onclick="detallaProducto(${indice})">search</i><i class="material-icons" onclick='borraProducto(${indice})'>delete</i></td>
             </tr>`;
 
        tabla += filaTabla;        
@@ -125,5 +125,27 @@ function borraProducto(eliminable){
     // 3. Volver a pintar la lista
     rellenaLista();
    
+}
+
+function detallaProducto(indice){
+    /*   <header><h4>Plátano</h4></header>
+        <div class="row"><span class="label">Compra:</span> <span class="info">12</span></div>
+        <div class="row"><span class="label">En: </span> <span class="info">Fruteria Pepi </span></div>
+        <div class="row"><span class="label">Notas: </span> <span class="info">Blablabla</span></div>
+        <div id="infoprodOk" class="button cancelar" onclick="escondeModal()">Visto</div> */
+
+    let detalle ="";
+    let prod = col_productos.productos[indice];
+    let contenedor = document.getElementById("infoprod");
+    
+    detalle = `
+        <header><h4>${prod.nombre}</h4></header>
+        <div class="row"><span class="label">Compra:</span> <span class="info">${prod.cantidad}</span></div>
+        <div class="row"><span class="label">En: </span> <span class="info">${prod.tienda} </span></div>
+        <div class="row"><span class="label">Notas: </span> <span class="info">${prod.notas}</span></div>
+        <div id="infoprodOk" class="button cancelar" onclick="escondeModal()">Visto</div>
+    `
+    contenedor.innerHTML = detalle;
+    muestraModal('infoprod');
 }
 
