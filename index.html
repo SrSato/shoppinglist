@@ -22,20 +22,7 @@
     </main>
     
     <div class="modal">
-        <div id="lectorQr" class="modalhija">
-            <header>
-                <h4>Lector de QR</h4>
-            </header>
-           
-            <div class="col">
-                <div style="width:350px;" id="reader"></div>
-            </div>
-            <div class="col" style="padding:30px;">
-                <h4>CONTENIDO ESCANEADO:</h4>
-                <div id="result">Aquí aparecerá la lista leida desde el QR.</div>
-            </div>             
-            <div id="qrOk" class="button" onclick="escondeModal()">Visto</div>
-        </div>
+       
         <div id="introprod" class="modalhija">
             <header><h4>Nuevo Producto</h4></header>
             <input id="inputNombre" type="text" placeholder="Cosa a comprar...">
@@ -51,7 +38,23 @@
             <div id="introprodCancel" class="button cancelar" onclick="limpiaProducto()">Cancelar</div>
             <div id="introprodGuardar" class="button" onclick="creaProducto()">Guardar</div> 
         </div>
+        
         <div id="infoprod" class="modalhija">
+        </div>
+
+        <div id="lectorQr" class="modalhija">
+            <header>
+                <h4>Lector de QR</h4>
+            </header>
+           
+            <div class="col">
+                <div style="width:350px;" id="reader"></div>
+            </div>
+            <div class="col">
+                <h4>CONTENIDO ESCANEADO:</h4>
+                <div id="result">Aquí aparecerá la lista leida desde el QR.</div>
+            </div>             
+            <div id="qrOk" class="button" onclick="escondeModal()">Visto</div>
         </div>
        
     </div>
@@ -66,6 +69,22 @@
         //Para cargar los datos después de tener el esqueleto
         recuperaArchivados();
         rellenaSelect("selectTienda", col_tiendas.tiendas);
+    </script>
+
+    <script type="text/javascript">
+        //Para crear el scanner QR
+        function onScanSuccess(qrCodeMessage) {
+            document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
+        }
+
+        function onScanError(errorMessage) {
+        }
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", {
+                fps: 10,
+                qrbox: 250
+            });
+        html5QrcodeScanner.render(onScanSuccess, onScanError);
     </script>
 </body>
 </html>
