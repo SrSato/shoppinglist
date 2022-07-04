@@ -140,7 +140,9 @@ footer{
     background-color: rgba(211, 211, 211, 0.5);
 }
 
-#introprod,#infoprod{
+#introprod,
+#infoprod,
+#lectorQr{
     max-width: 500px;    
     border-radius: 10px;
 

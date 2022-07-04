@@ -10,9 +10,13 @@
     <script src="js/logica.js"></script>
     <script src="js/tiendas.js"></script>
     <script src="js/productos.js"></script>
+
+    <script src="js/html5-qrcode.min.js"></script>
+    <script src="https://unpkg.com/qrious@4.0.2/dist/qrious.js"></script>
+
 </head>
 <body>
-    <header><h3>Shopping List</h3></header>
+    <header><h3>Shopping List</h3> <a href="" onclick="muestraModal('lectorQr')">Lector de QR</a></header>
 
     <main id="main" >       
     </main>
@@ -35,7 +39,23 @@
         </div>
         <div id="infoprod" class="modalhija">
         </div>
+        <div id="lectorQr" class="modalhija">
+            <header>
+                <h4>Lector de QR</h4>
+            </header>
+           
+            <div class="col">
+                <div style="width:350px;" id="reader"></div>
+            </div>
+            <div class="col" style="padding:30px;">
+                <h4>CONTENIDO ESCANEADO:</h4>
+                <div id="result">Aquí aparecerá la lista leida desde el QR.</div>
+            </div>             
+            <div id="qrOk" class="button" onclick="escondeModal()">Visto</div>
+        </div>
     </div>
+
+    
     
     <footer>
       <div id="add" onclick="muestraModal('introprod')"><i class="material-icons">add</i></div>
