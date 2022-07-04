@@ -21,7 +21,7 @@
     <header>
         <h3>Shopping List</h3>
         <div onclick="muestraModal('lectorQr')">Lector de QR</div>
-        <div onclick="muestraModal('creadorQr')">Creador de QR</div>
+        <div onclick="creaQr()">Creador de QR</div>
     </header>
 
     <main id="main">
@@ -55,7 +55,6 @@
             <header>
                 <h4>Lector de QR</h4>
             </header>
-
             <div class="col">
                 <div style="width:350px;" id="reader"></div>
             </div>
@@ -68,9 +67,11 @@
 
         <div id="creadorQr" class="modalhija">
             <header>QR con nuestra lista</header>
-            <img alt="Código QR" id="codigoQr">
-            <br>
-            <button id="btnDescargar">Descargar</button>            
+            <div class="col">
+                <img alt="Código QR" id="codigoQr">
+            </div>
+            <div class="button cancelar" onclick="escondeModal()">Visto</div>               
+            <div class="button" onclick="descargaQr()">Descargar</div>                        
         </div>
 
     </div>
@@ -104,23 +105,27 @@
 
     <script>
         //Para crear el QR
-        const imagen = document.getElementById("codigoQr");
-        const boton = document.getElementById("btnDescargar");
 
-        new QRious({
-            element: imagen,
-            value:  JSON.stringify(col_productos), // La URL o el texto
-            size: 200,
-            backgroundAlpha: 0, // 0 para fondo transparente
-            foreground: "#8bc34a", // Color del QR
-            level: "H", // Puede ser L,M,Q y H (L es el de menor nivel, H el mayor)
-        });
+        
+        function creaQr(){           
+            const imagen = document.getElementById("codigoQr");
+            new QRious({
+                element: imagen,
+                value:  JSON.stringify(col_productos), // La URL o el texto
+                size: 200,
+                backgroundAlpha: 0, // 0 para fondo transparente
+                foreground: "#32cb00", // Color del QR
+                level: "H", // Puede ser L,M,Q y H (L es el de menor nivel, H el mayor)
+            });
+
+            muestraModal("creadorQr");
+        }
        
-        boton.onclick = () => {          
-
+        function descargaQr(){         
+            const imagen = document.getElementById("codigoQr");
             const enlace = document.createElement("a");
-            enlace.href = "lista_qr.png";
-            enlace.download = "lista_qr.png";
+            enlace.href = imagen.src;
+            enlace.download = "shoppinglist_qr.png";
             enlace.click();
         }
     </script>

@@ -143,7 +143,8 @@ footer{
 
 #introprod,
 #infoprod,
-#lectorQr{
+#lectorQr,
+#creadorQr{
     max-width: 500px;    
     border-radius: 10px;
 
@@ -238,7 +239,10 @@ footer{
 
 .col{
     width: 100%;
-    padding: 30px;    
+    padding: 30px;
+    text-align: center;    
 }
 
-
+#result{
+    overflow: auto;
+}
