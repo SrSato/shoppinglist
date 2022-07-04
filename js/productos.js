@@ -44,7 +44,8 @@ function creaProducto(){
             "nombre": nombre,
             "tienda": tienda,
             "cantidad": cantidad,
-            "notas": notas
+            "notas": notas,
+            "comprado": false
         }
     );
 
@@ -84,12 +85,16 @@ function rellenaLista(){
 
     let contenedor= document.getElementById("main");
     let tabla = '<table class="cebreado" id="tablaProds">';
+    let checkado ='';
 
     for (producto of col_productos.productos) {
         indice = col_productos.productos.indexOf(producto);
+        if(producto.comprado){
+            checkado="checked";
+        }        
         filaTabla = 
             `<tr>
-                <td> <input type="checkbox" name="chk_${producto.nombre}" id="chk_${producto.nombre}"></td>
+                <td> <input type="checkbox" name="chk_${producto.nombre}" id="chk_${producto.nombre}" ${checkado} onchange="cambiaComprado(${indice})"></td>
                 <td> <label for="chk_${producto.nombre}">${producto.nombre}</label></td>
                 <td class="td_cant"> ${producto.cantidad} </td>
                 <td class="td_icons"> <i class="material-icons" onclick="detallaProducto(${indice})">search</i><i class="material-icons" onclick='borraProducto(${indice})'>delete</i></td>
@@ -147,5 +152,12 @@ function detallaProducto(indice){
     `
     contenedor.innerHTML = detalle;
     muestraModal('infoprod');
+}
+
+function cambiaComprado(indice){
+    col_productos.productos[indice].comprado = !col_productos.productos[indice].comprado;
+    localStorage.setItem( "col_productos", JSON.stringify(col_productos) );
+    // Actualiza ahora o no a gusto del desarrollador.
+    rellenaLista();
 }
 
