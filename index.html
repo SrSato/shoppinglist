@@ -16,12 +16,26 @@
 
 </head>
 <body>
-    <header><h3>Shopping List</h3> <a href="" onclick="muestraModal('lectorQr')">Lector de QR</a></header>
+    <header><h3>Shopping List</h3> <div onclick="muestraModal('lectorQr')">Lector de QR</div></header>
 
     <main id="main" >       
     </main>
     
     <div class="modal">
+        <div id="lectorQr" class="modalhija">
+            <header>
+                <h4>Lector de QR</h4>
+            </header>
+           
+            <div class="col">
+                <div style="width:350px;" id="reader"></div>
+            </div>
+            <div class="col" style="padding:30px;">
+                <h4>CONTENIDO ESCANEADO:</h4>
+                <div id="result">Aquí aparecerá la lista leida desde el QR.</div>
+            </div>             
+            <div id="qrOk" class="button" onclick="escondeModal()">Visto</div>
+        </div>
         <div id="introprod" class="modalhija">
             <header><h4>Nuevo Producto</h4></header>
             <input id="inputNombre" type="text" placeholder="Cosa a comprar...">
@@ -39,20 +53,7 @@
         </div>
         <div id="infoprod" class="modalhija">
         </div>
-        <div id="lectorQr" class="modalhija">
-            <header>
-                <h4>Lector de QR</h4>
-            </header>
-           
-            <div class="col">
-                <div style="width:350px;" id="reader"></div>
-            </div>
-            <div class="col" style="padding:30px;">
-                <h4>CONTENIDO ESCANEADO:</h4>
-                <div id="result">Aquí aparecerá la lista leida desde el QR.</div>
-            </div>             
-            <div id="qrOk" class="button" onclick="escondeModal()">Visto</div>
-        </div>
+       
     </div>
 
     
