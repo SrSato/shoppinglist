@@ -4,7 +4,7 @@ col_productos = {
     "productos":[]
 }
 
-/*
+/*          SACADO DE MI PROTOTIPO - ESTA ES LA PINTA QUE LE DAREMOS AL JSON (nuestra mini base de datos ;) :
 col_productos={
     "productos" : [
         { "nombre": "lechuga",
@@ -72,7 +72,7 @@ function limpiaProducto(){
 }
 
 function rellenaLista(){
-    /*
+    /*        SACADO DE MI PROTOTIPO - ESTA ES LA PINTA DE LA TABLA QUE TENEMOS QUE CREAR DINáMICAMENTE:
     <table class="cebreado" id="tablaProds">
         <tr>
             <td> <input type="checkbox" name="chk_platano" id="chk_platano"></td>
@@ -88,10 +88,15 @@ function rellenaLista(){
     let checkado ='';
 
     for (producto of col_productos.productos) {
+        //Para cada producto de mi colección guardo el indice ... Lo usaré en los botones de detalle y borrar
         indice = col_productos.productos.indexOf(producto);
+        //Si comprado es true le pondré el atributo checked al checkbox (para que salga ya marcado). Si es false no le pondré nada (vacio la variabe y asi no se imprime nada cuando la uso en la etiqueta)
         if(producto.comprado){
             checkado="checked";
-        }        
+        }else{
+            checkado="";
+        }
+        //Como ya tenemos el indice y si está marcado o no, podemos montar la fila de nuestro producto en la tabla       
         filaTabla = 
             `<tr>
                 <td> <input type="checkbox" name="chk_${producto.nombre}" id="chk_${producto.nombre}" ${checkado} onchange="cambiaComprado(${indice})"></td>
@@ -133,7 +138,8 @@ function borraProducto(eliminable){
 }
 
 function detallaProducto(indice){
-    /*   <header><h4>Plátano</h4></header>
+    /*   SACADO DE MI PROTOTIPO - ES LA PINTA QUE DEBERIA TENER EL DETALLE DE CADA PRODUCTO:
+        <header><h4>Plátano</h4></header>
         <div class="row"><span class="label">Compra:</span> <span class="info">12</span></div>
         <div class="row"><span class="label">En: </span> <span class="info">Fruteria Pepi </span></div>
         <div class="row"><span class="label">Notas: </span> <span class="info">Blablabla</span></div>
@@ -157,7 +163,6 @@ function detallaProducto(indice){
 function cambiaComprado(indice){
     col_productos.productos[indice].comprado = !col_productos.productos[indice].comprado;
     localStorage.setItem( "col_productos", JSON.stringify(col_productos) );
-    // Actualiza ahora o no a gusto del desarrollador.
-    rellenaLista();
+    rellenaLista(); //¿Hace falta???
 }
 
