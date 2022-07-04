@@ -235,5 +235,9 @@ footer{
     background-color: var(--slight);
 }
 
+.col{
+    width: 100%;
+    padding: 25px;    
+}
 
 
