@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping List Nules 2022</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/backup_google.css" rel="stylesheet">
     <link id="cssbueno" href="css/layout.css" rel="stylesheet">
     <script src="js/logica.js"></script>
     <script src="js/tiendas.js"></script>
@@ -19,9 +19,20 @@
 
 <body>
     <header>
-        <h3>Shopping List</h3>
+        <h3 id="supertitulo">Shopping List</h3>
         <div onclick="muestraModal('lectorQr')">Lector de QR</div>
         <div onclick="creaQr()">Creador de QR</div>
+
+        <script>
+            const frase = document.getElementById("supertitulo").innerHTML;
+            let res = "";
+            for(letra of frase){
+                res += `<span>${letra}</span>`;
+            }
+            document.getElementById("supertitulo").innerHTML  = res;
+        </script>
+
+
     </header>
 
     <main id="main">
@@ -47,12 +58,8 @@
             <div id="introprodCancel" class="button cancelar" onclick="limpiaProducto()">Cancelar</div>
             <div id="introprodGuardar" class="button" onclick="creaProducto()">Guardar</div>
         </div>
-<<<<<<< HEAD
-        <div id="infoprod" class="modalhija">            
-=======
 
         <div id="infoprod" class="modalhija">
->>>>>>> e344d5f365a73fa824fd026e8cbbf0b9d7c7516d
         </div>
 
         <div id="lectorQr" class="modalhija">

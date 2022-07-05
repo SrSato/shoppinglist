@@ -246,3 +246,11 @@ footer{
 #result{
     overflow: auto;
 }
+
+#supertitulo span:nth-child(even){
+    color: var(--sdark);
+}
+
+#supertitulo span:nth-child(odd){
+    color: var(--slight);
+}

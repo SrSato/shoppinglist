@@ -10,12 +10,16 @@ col_productos={
         { "nombre": "lechuga",
           "cantidad" : 3,
           "tienda" : "ALDI",
-          "notas" : "Cuidado con los bichos!"},
+          "notas" : "Cuidado con los bichos!",
+          "comprado":false  
+        },
 
         { "nombre": "tomate",
           "cantidad" : 31,
           "tienda" : "Melones de Leyenda",
-          "notas" : "Que estén maduros!!"}
+          "notas" : "Que estén maduros!!",
+          "comprado":false  
+        }
     ]
 }*/
 
@@ -90,7 +94,10 @@ function rellenaLista(){
     for (producto of col_productos.productos) {
         //Para cada producto de mi colección guardo el indice ... Lo usaré en los botones de detalle y borrar
         indice = col_productos.productos.indexOf(producto);
-        //Si comprado es true le pondré el atributo checked al checkbox (para que salga ya marcado). Si es false no le pondré nada (vacio la variabe y asi no se imprime nada cuando la uso en la etiqueta)
+        //Si comprado es true le pondré el atributo checked al checkbox 
+        //(para que salga ya marcado). 
+        //Si es false no le pondré nada 
+        //(vacio la variabe y asi no se imprime nada cuando la uso en la etiqueta)
         if(producto.comprado){
             checkado="checked";
         }else{
