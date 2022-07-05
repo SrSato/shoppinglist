@@ -46,6 +46,7 @@ main{
     /* Dimensiones*/
     width:  100%;
     height: 100vh;
+    margin-bottom: 55px;
     /* Estilo*/
     background-color: var(--backcolor);
 }
@@ -140,7 +141,10 @@ footer{
     background-color: rgba(211, 211, 211, 0.5);
 }
 
-#introprod,#infoprod{
+#introprod,
+#infoprod,
+#lectorQr,
+#creadorQr{
     max-width: 500px;    
     border-radius: 10px;
 
@@ -233,5 +237,12 @@ footer{
     background-color: var(--slight);
 }
 
+.col{
+    width: 100%;
+    padding: 30px;
+    text-align: center;    
+}
 
-
+#result{
+    overflow: auto;
+}
