@@ -37,11 +37,25 @@ header{
     top:0px;
     /* Estilo*/
     background-color: var(--primary);
-    color: var(--textp);
+    color: var(--secondary);
     box-shadow: 0 5px 5px var(--backshadow);
     font-family: var(--pfont);
 }
 
+header div{
+    float: right;
+    margin-right: 15px;
+}
+
+i:hover{
+    color: var(--sdark);
+    cursor: pointer;
+}
+
+header h3{
+    float: left;
+    margin-left: 15px;
+}
 main{
     /* Dimensiones*/
     width:  100%;
@@ -123,6 +137,10 @@ footer{
     
     font-size: 50px;
     
+}
+
+#add i:hover{
+    color: var(--texts);
 }
 
 .modal{
@@ -245,12 +263,4 @@ footer{
 
 #result{
     overflow: auto;
-}
-
-#supertitulo span:nth-child(even){
-    color: var(--sdark);
-}
-
-#supertitulo span:nth-child(odd){
-    color: var(--slight);
 }

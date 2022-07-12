@@ -20,19 +20,8 @@
 <body>
     <header>
         <h3 id="supertitulo">Shopping List</h3>
-        <div onclick="muestraModal('lectorQr')">Lector de QR</div>
-        <div onclick="creaQr()">Creador de QR</div>
-
-        <script>
-            const frase = document.getElementById("supertitulo").innerHTML;
-            let res = "";
-            for(letra of frase){
-                res += `<span>${letra}</span>`;
-            }
-            document.getElementById("supertitulo").innerHTML  = res;
-        </script>
-
-
+        <div onclick="muestraModal('lectorQr')"><i class="material-icons">qr_code_scanner</i></div>
+        <div onclick="creaQr()"><i class="material-icons">qr_code_2</i></div>
     </header>
 
     <main id="main">
@@ -70,8 +59,8 @@
                 <div style="width:350px;" id="reader"></div>
             </div>
             <div class="col">
-                <h4>CONTENIDO ESCANEADO:</h4>
-                <div id="result">Aquí aparecerá la lista leida desde el QR.</div>
+                <h4>AVISOS:</h4>
+                <div id="result">Todo correcto por ahora ;)</div>
             </div>
             <div id="qrOk" class="button" onclick="escondeModal()">Visto</div>
         </div>
@@ -100,12 +89,36 @@
     </script>
 
     <script type="text/javascript">
-        //Para crear el scanner QR
+        //Funciones y comportamiento para el scanner QR
         function onScanSuccess(qrCodeMessage) {
-            document.getElementById('result').innerHTML = '<span class="result">' + qrCodeMessage + '</span>';
+            
+            let avisoHtml =  document.getElementById('result');
+            let listaLeida = JSON.parse(qrCodeMessage);
+            alert(listaLeida.productos.length);
+            
+            if(listaLeida.productos.length > 0){
+                alert(listaLeida.productos);
+                col_productos=listaLeida;
+                localStorage.setItem( "col_productos", JSON.stringify(col_productos) );
+                rellenaLista();
+                avisoHtml.innerHTML =  `<span class="result"> Lista correctamente importada desde el QR</span>`
+            }else{
+                avisoHtml.innerHTML = `<span class="result"> El QR no contenía una lista válida</span>`;  
+            }
+            
+            
         }
 
-        function onScanError(errorMessage) {}
+        function onScanError(errorMessage) { 
+            //Para trabajar los errores escaneando... por ahora se puede quedar vacia
+        }
+
+        function limpiaQr() {
+            let avisoHtml =  document.getElementById('result').innerHTML;
+            avisoHtml = `<span class="result"> Todo correcto por ahora ;) </span>`
+        }
+
+
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
                 fps: 10,
