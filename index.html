@@ -93,11 +93,9 @@
         function onScanSuccess(qrCodeMessage) {
             
             let avisoHtml =  document.getElementById('result');
-            let listaLeida = JSON.parse(qrCodeMessage);
-            alert(listaLeida.productos.length);
+            let listaLeida = JSON.parse(qrCodeMessage);           
             
             if(listaLeida.productos.length > 0){
-                alert(listaLeida.productos);
                 col_productos=listaLeida;
                 localStorage.setItem( "col_productos", JSON.stringify(col_productos) );
                 rellenaLista();
