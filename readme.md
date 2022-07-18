@@ -28,5 +28,5 @@ Todos estos proyectos son propiedad de sus respectivos autores y es aconsejable 
 
 ## 📝 ToDo:
 - [ ] Separar los scripts de creación y lectura de QRs en sus propios ficheros.
-- [ ] Generar el interfaz y el CRUD para las tiendas.
+- [ ] Generar el interfaz y el CRUD para la gestión de las tiendas.
 - [ ] Pulir el CSS.
