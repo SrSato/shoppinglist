@@ -1,4 +1,4 @@
-# Shopping List Nules 2022
+# Shopping List
 
 Un gestor de listas de la compra simple. Creado como ejemplo de desarrollo sin bases de datos, ni lenguajes de servidor. Sólo frontend y apoyo en programas de terceros.
 
