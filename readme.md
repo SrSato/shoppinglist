@@ -26,6 +26,6 @@ Todos estos proyectos son propiedad de sus respectivos autores y os aconsejamos 
 - Por ahora las tiendas posibles se guardan en el /js/tiendas.js y deben editarse a mano si queremos añadir, eliminar o cambiar alguna.
 
 ## ToDo
-- [] Separar los scripts de creación y lectura de QRs en sus propios ficheros.
-- [] Generar el interfaz y el CRUD para las tiendas.
-- [] Pulir el CSS.
+- [ ] Separar los scripts de creación y lectura de QRs en sus propios ficheros.
+- [ ] Generar el interfaz y el CRUD para las tiendas.
+- [ ] Pulir el CSS.
