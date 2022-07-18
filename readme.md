@@ -16,7 +16,7 @@ En las fases finales hemos añadido un creador y un lector de QR con código de 
 - [x] Lector de QR 👉🏽 https://www.npmjs.com/package/html5-qrcode
 - [x] Creador de QR 👉🏽 https://github.com/parzibyte/ejemplos-javascript/tree/master/generar-qr
 
-Todos estos proyectos son propiedad de sus respectivos autores y os aconsejamos que visitéis sus paginas para conocer más detalles sobre sus trabajos y sobre las licencias de uso de cada proyecto.
+Todos estos proyectos son propiedad de sus respectivos autores y es aconsejable que visitéis sus paginas para conocer más detalles sobre sus trabajos y sobre las licencias de uso de cada proyecto.
 
 ## 💾 Instalación:
 
